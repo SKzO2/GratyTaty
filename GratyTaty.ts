@@ -1,15 +1,30 @@
 /**
  * GratyTaty blocks.
  */
-//% color=#5C0091 weight=101 icon="\uf205"
+
+//% color=#ab0707 weight=80 icon="\uf2db"
 namespace GratyTaty {
     /**
          * Opis
     */
+    export enum kierunek {
+        doPrzodu,
+        doTylu,
+        wlewo,
+        wprawo
+    }
 
-    //% block="zrob cos %x %y"
-    export function cos(x: number, y: number) {
-        led.plot(x,y);
+    //% block="Jedź %gdzie "
+    export function cos(gdzie: GratyTaty.kierunek) {
+        if (gdzie == 0) {
+            basic.showLeds(`
+            . . # . .
+            . # # # .
+            # # # # #
+            . . # . .
+            . . # . .
+            `)
+        }
     }
 
 }
