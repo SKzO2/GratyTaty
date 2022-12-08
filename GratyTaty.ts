@@ -17,7 +17,7 @@ namespace GratyTaty {
         wlewo,
         wprawo
     }
-
+    
     //% block="Jedź %gdzie z prędkością %predkosc "
     //% predkosc.min=0 predkosc.max=255
     //% predkosc.fieldOptions.precision=1 
@@ -30,10 +30,10 @@ namespace GratyTaty {
             . . # . .
             . . # . .
             `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M3, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M4, motor.Dir.CCW, predkosc);
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             return;
         }
         if (gdzie == 1) {
@@ -44,10 +44,10 @@ namespace GratyTaty {
             . # # # .
             . . # . .
             `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M3, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M4, motor.Dir.CW, predkosc);
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
             return;
         }
         if (gdzie == 2) {
@@ -58,10 +58,10 @@ namespace GratyTaty {
             . # # . .
             . . # . .
             `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M3, motor.Dir.CCW, predkosc);
-            motor.MotorRun(motor.Motors.M4, motor.Dir.CCW, predkosc);
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             return;
         }
         if (gdzie == 3) {
@@ -72,10 +72,10 @@ namespace GratyTaty {
             . . # # .
             . . # . .
             `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M3, motor.Dir.CW, predkosc);
-            motor.MotorRun(motor.Motors.M4, motor.Dir.CW, predkosc);
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
             return;
         }
     }
