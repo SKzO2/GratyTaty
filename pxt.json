@@ -4,15 +4,14 @@
     "dependencies": {
         "core": "*",
         "microphone": "*",
-        "motor": "github:DFRobot/pxt-motor#2cdf17586556c5a532782aa436c516ae50f5f316",
-        "BlockyTalky-BLE": "github:laboratoryforplayfulcomputation/pxt-blockytalkyble#v0.0.21",
-        "vl53l0x-distance": "github:tinkertanker/pxt-range-vl53l0x#v1.0.1"
+        "motor": "github:DFRobot/pxt-motor#2cdf17586556c5a532782aa436c516ae50f5f316"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
-        "GratyTaty.ts"
+        "GratyTaty.ts",
+        "dystans.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -24,5 +23,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
