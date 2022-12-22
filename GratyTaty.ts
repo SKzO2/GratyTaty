@@ -17,7 +17,165 @@ namespace GratyTaty {
         wlewo,
         wprawo
     }
-    
+    /**
+     * Pokaż na wyswietlaczu poziom w wartosiach od 0 do 15 
+     */
+
+    //% block="Pokaż pozopn %poziom"
+    //% poziom.min=0 poziom.max=15
+    //% kat.fieldOptions.precision=1
+    export function pokazpoziom(poziom: number){
+        switch(poziom){
+            case 0:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `);
+                break;
+            case 1:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                `);
+                break;
+            case 2:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . # # # .
+                `);
+                break;
+            case 3:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                # # # # #
+                `);
+                break;
+            case 4:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                # # # # #
+                `);
+                break;
+            case 5:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . # # # .
+                # # # # #
+                `);
+                break;
+            case 6:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 7:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                # # # # #
+                # # # # #
+
+                `);
+                break;
+            case 8:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . # # # .
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 9:
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # # # # #
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 10:
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                # # # # #
+                # # # # #
+                # # # # #
+
+                `);
+                break;
+            case 11:
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                # # # # #
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 12:
+                basic.showLeds(`
+                . . . . .
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 13:
+                basic.showLeds(`
+                . . # . .
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+
+                `);
+                break;
+            case 14:
+                basic.showLeds(`
+                . # # # .
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                `);
+                break;
+            case 15:
+                basic.showLeds(`
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                `);
+                break;
+
+        }
+    }
     //% block="Jedź %gdzie z prędkością %predkosc "
     //% predkosc.min=0 predkosc.max=255
     //% predkosc.fieldOptions.precision=1 
