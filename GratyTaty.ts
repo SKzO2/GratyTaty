@@ -18,7 +18,15 @@ namespace GratyTaty {
         wprawo
     }
    
-   
+    /**
+      * Stop all motors
+     */
+    //% block="Zatrzymnaj silniki"
+    export function wszystkiesilnikiStop(): void {
+        for (let idx = 1; idx <= 4; idx++) {
+            motor.motorStop(idx);
+        }
+    }
     //% block="Jedź %gdzie z prędkością %predkosc "
     //% predkosc.min=0 predkosc.max=255
     //% predkosc.fieldOptions.precision=1 
