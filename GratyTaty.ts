@@ -12,7 +12,7 @@ namespace GratyTaty {
         doTylu,
         wlewo,
         wprawo,
-        obtot_L,
+        obrot_L,
         obrot_P,
         skos_LP,
         skos_LT,
@@ -40,58 +40,93 @@ namespace GratyTaty {
     //% predkosc.fieldOptions.precision=1 
     export function jedzWKierunku(gdzie: GratyTaty.kierunekJazdy, predkosc:number) {
         if (gdzie == 0) {
-            basic.showLeds(`
-            . . # . .
-            . # # # .
-            # # # # #
-            . . # . .
-            . . # . .
-            `);
+           
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
+            return;
+        }
+        if (gdzie == 1) {
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            return;
+        }
+        if (gdzie == 2) {
             motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
             motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
             motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             return;
         }
-        if (gdzie == 1) {
-            basic.showLeds(`
-            . . # . .
-            . . # . .
-            # # # # #
-            . # # # .
-            . . # . .
-            `);
+        if (gdzie == 3) {
             motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
             motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
             return;
         }
-        if (gdzie == 2) {
-            basic.showLeds(`
-            . . # . .
-            . # # . .
-            # # # # #
-            . # # . .
-            . . # . .
-            `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+        if (gdzie == 4) {
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
             motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             return;
         }
-        if (gdzie == 3) {
-            basic.showLeds(`
-            . . # . .
-            . . # # .
-            # # # # #
-            . . # # .
-            . . # . .
-            `);
-            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
-            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
+        if (gdzie == 5) {
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
+            return;
+        }
+        if (gdzie == 6) {
+            for (let idx = 1; idx <= 4; idx++) {
+                motor.motorStop(idx);
+            }
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Jak_wskazowki, predkosc);
+            return;
+        }
+        if (gdzie == 7) {
+            for (let idx = 1; idx <= 4; idx++) {
+                motor.motorStop(idx);
+            }
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            return;
+        }
+        if (gdzie == 8) {
+            for (let idx = 1; idx <= 4; idx++) {
+                motor.motorStop(idx);
+            }
+            motor.MotorRun(motor.Motors.M2, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
+            return;
+        }
+        if (gdzie == 9) {
+            for (let idx = 1; idx <= 4; idx++) {
+                motor.motorStop(idx);
+            }
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            motor.MotorRun(motor.Motors.M3, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            return;
+        }
+        if (gdzie == 10) {
+            for (let idx = 1; idx <= 4; idx++) {
+                motor.motorStop(idx);
+            }
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Jak_wskazowki, predkosc);
+            motor.MotorRun(motor.Motors.M4, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
+            return;
+        }
+         if (gdzie == 11) {
+             for (let idx = 1; idx <= 4; idx++) {
+                 motor.motorStop(idx);
+             }
+            motor.MotorRun(motor.Motors.M1, motor.Dir.Odwrotnie_do_wskazowek, predkosc);
             motor.MotorRun(motor.Motors.M4, motor.Dir.Jak_wskazowki, predkosc);
             return;
         }
