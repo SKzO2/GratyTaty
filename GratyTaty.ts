@@ -11,7 +11,15 @@ namespace GratyTaty {
         doPrzodu,
         doTylu,
         wlewo,
-        wprawo
+        wprawo,
+        obtot_L,
+        obrot_P,
+        skos_LP,
+        skos_LT,
+        skos_PP,
+        skos_PT,
+        luk_L,
+        luk_P
     }
     export enum kierunekSkrecania {
         wlewo,
@@ -106,22 +114,5 @@ namespace GratyTaty {
         motor.servo(motor.Servos.S1, skret)
 
     }
-    //% block="Włącz miernik odległości"
-    export function DystansInit(){
-         Rangefinder.init();
-    }
-    //% block="Odległość dokladnie"
-    export function podajDystans():number {
-        return Rangefinder.distance();
-    }
-    //% block="Odległość zgrubsza"
-    export function podajDystansbig(): number {
-        return Math.floor(Rangefinder.distance() / 100);
-    }
-    //% block="Odległość tylko male"
-    export function podajDystanssmall(): number {
-        return Rangefinder.distance()-Math.floor(Rangefinder.distance() / 100);
-    }
-
-
+   
 }

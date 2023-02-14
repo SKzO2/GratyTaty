@@ -1,7 +1,22 @@
+/*！
+ * @file pxt-motor/main.ts
+ * @brief DFRobot's microbit motor drive makecode library.
+ * @n [Get the module here](http://www.dfrobot.com.cn/goods-1577.html)
+ * @n This is the microbit special motor drive library, which realizes control 
+ *    of the eight-channel steering gear, two-step motor and four-way dc motor.
+ *
+ * @copyright	[DFRobot](http://www.dfrobot.com), 2016
+ * @copyright	GNU Lesser General Public License
+ *
+ * @author [email](1035868977@qq.com)
+ * @version  V1.0.1
+ * @date  2018-03-20
+ */
+
 /**
  *This is DFRobot:motor user motor and steering control function.
- *Copied only for translation purposes
  */
+//% weight=10 color=#DF6721 icon="\uf013" block="DF-Driver"
 namespace motor {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -48,8 +63,10 @@ namespace motor {
      * The user can choose the step motor model.
      */
     export enum Stepper {
-        Ste1 = 1,//42 SKALIB
-        Ste2 = 2//28 SKALIB
+        //% block="42"
+        Ste1 = 1,
+        //% block="28"
+        Ste2 = 2
     }
 
     /**
@@ -80,8 +97,10 @@ namespace motor {
      * The user defines the motor rotation direction.
      */
     export enum Dir {
-       Jak_wskazowki = 1,
-       Odwrotnie_do_wskazowek = -1,
+        //% blockId="CW" block="Jak_wskazowki"
+        Jak_wskazowki = 1,
+        //% blockId="CCW" block="Odwrotnie_do_wskazowek"
+        Odwrotnie_do_wskazowek = -1,
     }
 
     /**
@@ -210,10 +229,14 @@ namespace motor {
 
 
     /**
-     * Sterowanie silnikami kątowymi SERVO.
+     * Steering gear control function.
      * S1~S8.
      * 0°~180°.
     */
+    //% blockId=motor_servo block="Servo|%index|degree|%degree"
+    //% weight=100
+    //% degree.min=0 degree.max=180
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=4
     export function servo(index: Servos, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -225,10 +248,15 @@ namespace motor {
     }
 
     /**
-     * Uruchomienie silnika DC
+     * Execute a motor
      * M1~M4.
-     * prędkość (0~255).
+     * speed(0~255).
     */
+    //% weight=90
+    //% blockId=motor_MotorRun block="Motor|%index|dir|%Dir|speed|%speed"
+    //% speed.min=0 speed.max=255
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
     export function MotorRun(index: Motors, direction: Dir, speed: number): void {
         if (!initialized) {
             initPCA9685()
@@ -254,9 +282,13 @@ namespace motor {
     }
 
     /**
-     * Obsługa silnika krokowego 42BYGH1861A-C.
+     * Execute a 42BYGH1861A-C step motor(Degree).
      * M1_M2/M3_M4.
     */
+    //% weight=80
+    //% blockId=motor_stepperDegree_42 block="Stepper 42|%index|dir|%direction|degree|%degree"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
     export function stepperDegree_42(index: Steppers, direction: Dir, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -284,7 +316,11 @@ namespace motor {
      * Execute a 42BYGH1861A-C step motor(Turn).
      * M1_M2/M3_M4.
     */
-   export function stepperTurn_42(index: Steppers, direction: Dir, turn: number): void {
+    //% weight=70
+    //% blockId=motor_stepperTurn_42 block="Stepper 42|%index|dir|%direction|turn|%turn"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
+    export function stepperTurn_42(index: Steppers, direction: Dir, turn: number): void {
         if (turn == 0) {
             return;
         }
@@ -296,6 +332,10 @@ namespace motor {
      * Execute a 28BYJ-48 step motor(Degree).
      * M1_M2/M3_M4.
     */
+    //% weight=60
+    //% blockId=motor_stepperDegree_28 block="Stepper 28|%index|dir|%direction|degree|%degree"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
     export function stepperDegree_28(index: Steppers, direction: Dir, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -323,6 +363,10 @@ namespace motor {
      * Execute a 28BYJ-48 step motor(Turn).
      * M1_M2/M3_M4.
     */
+    //% weight=50
+    //% blockId=motor_stepperTurn_28 block="Stepper 28|%index|dir|%direction|turn|%turn"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
     export function stepperTurn_28(index: Steppers, direction: Dir, turn: number): void {
         if (turn == 0) {
             return;
@@ -334,6 +378,11 @@ namespace motor {
     /**
      * Two parallel stepper motors are executed simultaneously(DegreeDual).
     */
+    //% weight=40
+    //% blockId=motor_stepperDegreeDual_42 block="Dual Stepper %stepper|M1_M2 dir %direction1|degree %degree1|M3_M4 dir %direction2|degree %degree2"
+    //% stepper.fieldEditor="gridpicker" stepper.fieldOptions.columns=2
+    //% direction1.fieldEditor="gridpicker" direction1.fieldOptions.columns=2
+    //% direction2.fieldEditor="gridpicker" direction2.fieldOptions.columns=2
     export function stepperDegreeDual_42(stepper: Stepper, direction1: Dir, degree1: number, direction2: Dir, degree2: number): void {
         if (!initialized) {
             initPCA9685()
@@ -421,6 +470,11 @@ namespace motor {
     /**
      * Two parallel stepper motors are executed simultaneously(Turn).
     */
+    //% weight=30
+    //% blockId=motor_stepperTurnDual_42 block="Dual Stepper %stepper|M1_M2 dir %direction1|trun %trun1|M3_M4 dir %direction2|trun %trun2"
+    //% stepper.fieldEditor="gridpicker" stepper.fieldOptions.columns=2
+    //% direction1.fieldEditor="gridpicker" direction1.fieldOptions.columns=2
+    //% direction2.fieldEditor="gridpicker" direction2.fieldOptions.columns=2
     export function stepperTurnDual_42(stepper: Stepper, direction1: Dir, trun1: number, direction2: Dir, trun2: number): void {
         if ((trun1 == 0) && (trun2 == 0)) {
             return;
@@ -441,6 +495,9 @@ namespace motor {
     /**
      * Stop the dc motor.
     */
+    //% weight=20
+    //% blockId=motor_motorStop block="Motor stop|%index"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2 
     export function motorStop(index: Motors) {
         setPwm((4 - index) * 2, 0, 0);
         setPwm((4 - index) * 2 + 1, 0, 0);
@@ -449,10 +506,13 @@ namespace motor {
     /**
      * Stop all motors
     */
+    //% weight=10
+    //% blockId=motor_motorStopAll block="Motor Stop All"
     export function motorStopAll(): void {
         for (let idx = 1; idx <= 4; idx++) {
             motorStop(idx);
         }
     }
 }
+
 

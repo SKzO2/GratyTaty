@@ -3,20 +3,16 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "microphone": "*",
-        "bluetooth": "*"
+        "microphone": "*"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
         "GratyTaty.ts",
-        "dystans.ts",
         "silniki.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
+    "testFiles": [],
     "targetVersions": {
         "target": "5.0.12",
         "targetId": "microbit"
