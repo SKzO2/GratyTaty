@@ -149,5 +149,12 @@ namespace GratyTaty {
         motor.servo(motor.Servos.S1, skret)
 
     }
-   
+    
+    //% block="wait (ms)%ms"
+    //%ms.min=ms.max=6000
+    function waitMilis(ms: number) {
+        for (let i = 0; i < 1000; i++) {
+            control.waitMicros(ms);
+        }
+    }
 }
