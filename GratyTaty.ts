@@ -136,7 +136,7 @@ namespace GratyTaty {
      * Serwo S1 jest odpowiedzialne za skręcanie kół
      */
 
-    //% block="Skrść %gdzie jak mocno %kat"
+    //% block="Skręć %gdzie jak mocno %kat"
     //% kat.min=0 kat.max=90
     //% kat.fieldOptions.precision=1
     export function Skrec(gdzie: GratyTaty.kierunekSkrecania, kat: number) {
@@ -147,14 +147,16 @@ namespace GratyTaty {
             skret-=kat;
         }
         motor.servo(motor.Servos.S1, skret)
-
     }
-    
-    //% block="wait (ms)%ms"
-    //%ms.min=ms.max=6000
-    function waitMilis(ms: number) {
-        for (let i = 0; i < 1000; i++) {
-            control.waitMicros(ms);
+   
+    //% block="Skrędć %gdzie jak mocno %kat"
+    //% kat.min=0 kat.max=90
+    //% kat.fieldOptions.precision=1
+    export function czekajms(kat: number) {
+        let i=0;
+        while (i < 1000) {
+            control.waitMicros(kat);
+            i++;
         }
     }
 }
