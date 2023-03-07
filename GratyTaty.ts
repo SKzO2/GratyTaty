@@ -7,6 +7,10 @@ namespace GratyTaty {
     /**
          * Opis
     */
+    let obrotmin;
+    let obrotmax;
+    let obrotstart=[2];
+
     export enum kierunekJazdy {
         doPrzodu,
         doTylu,
@@ -26,6 +30,23 @@ namespace GratyTaty {
         wprawo
     }
    
+    /**
+      * Rotation calibration
+     */
+    //% block="Kalibrój obracanie"
+    export function RotateCalibrate(): void {
+        obrotstart[0]=input.magneticForce(Dimension.Z);
+        obrotstart[1] = input.magneticForce(Dimension.X);
+        obrotmin = 0;
+        obrotmax = 0;
+        jedzWKierunku(kierunekJazdy.obrot_P,50);
+        control.waitMicros(100);
+        while(1){
+            if (obrotstart[0] == input.magneticForce(Dimension.Z)&&obrotstart[1] == input.magneticForce(Dimension.X)){
+            break;    
+            }
+        }
+    }
     /**
       * Stop all motors
      */
